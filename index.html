@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mommy's Best Friend Day ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="cursor"></div>
+    
+    <canvas id="weather-canvas"></canvas>
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="heart-pulse">❤️</div>
+            <h2 id="loader-text">Loading Mommy.exe...</h2>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+        </div>
+    </div>
+
+    <div id="intro-screen" class="hidden">
+        <div class="glass-card text-center">
+            <h1>WELCOME MOMMY ❤️</h1>
+            <p>Ready for the chaos?</p>
+            <button id="btn-enter" class="premium-btn">Enter The Chaos</button>
+        </div>
+    </div>
+
+    <div id="floating-ui" class="hidden">
+        <div class="live-clock glass-panel" id="live-clock">00:00:00</div>
+        <div class="music-player glass-panel">
+            <span id="music-toggle">🎵 Play</span>
+            <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5">
+            <audio id="bgm" src="music.mp3" loop></audio>
+        </div>
+        <div class="mood-picker glass-panel">
+            <select id="mood-select">
+                <option value="happy">✨ Happy</option>
+                <option value="chill">🌧️ Chill</option>
+                <option value="energetic">🔥 Energetic</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="achievement-toast" class="glass-panel hidden">
+        <div class="ach-icon">🏆</div>
+        <div class="ach-text">
+            <h4>Achievement Unlocked!</h4>
+            <p id="ach-desc">Description</p>
+        </div>
+    </div>
+
+    <main id="main-content" class="hidden">
+        
+        <section id="hero" class="full-screen parallax">
+            <h1 id="main-title">WELCOME MOMMY ❤️</h1>
+            <p class="subtitle">"Officially the most chaotic person this website has ever met."</p>
+            <div class="hero-buttons">
+                <button class="premium-btn" onclick="document.getElementById('facts').scrollIntoView({behavior: 'smooth'})">Begin Adventure</button>
+                <button class="premium-btn ghost" id="btn-secret-hero">Secret Button</button>
+            </div>
+        </section>
+
+        <section id="facts" class="padding-section">
+            <h2 class="section-title">Mommy Fact File</h2>
+            <div class="card-grid">
+                <div class="flip-card"><div class="flip-inner"><div class="flip-front">🐶 Dog Addict</div><div class="flip-back">Would pet a wolf if it looked friendly.</div></div></div>
+                <div class="flip-card"><div class="flip-inner"><div class="flip-front">🐱 Cat Approved</div><div class="flip-back">Meows back at cats.</div></div></div>
+                <div class="flip-card"><div class="flip-inner"><div class="flip-front">🎵 Music Lover</div><div class="flip-back">Playlist is 100% chaos.</div></div></div>
+                <div class="flip-card"><div class="flip-inner"><div class="flip-front">🖤 Black Color Enthusiast</div><div class="flip-back">"It matches my soul."</div></div></div>
+                <div class="flip-card"><div class="flip-inner"><div class="flip-front">💬 Professional Yapper</div><div class="flip-back">Can talk for 3 hours straight.</div></div></div>
+                <div class="flip-card"><div class="flip-inner"><div class="flip-front">😇 Innocent (Allegedly)</div><div class="flip-back">We all know this is a lie.</div></div></div>
+            </div>
+        </section>
+
+        <section id="stats" class="padding-section glass-section">
+            <h2 class="section-title">Verified Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-number" data-target="99999">0</span><span>%</span>
+                    <p>Dog Love</p>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number string-stat">Infinite</span>
+                    <p>Yapping Skills</p>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-target="100">0</span><span>%</span>
+                    <p>Chaos Energy</p>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number string-stat">Unlimited</span>
+                    <p>Being Appreciated</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="padding-section">
+            <h2 class="section-title">The Hall of Fame</h2>
+            <div class="masonry-gallery">
+                <img src="srishti1.jpg" alt="Srishti 1" class="gallery-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMmMyYzM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+c3Jpc2h0aTEuanBnPC90ZXh0Pjwvc3ZnPg=='">
+                <img src="srishti2.jpg" alt="Srishti 2" class="gallery-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMmMyYzM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+c3Jpc2h0aTIuanBnPC90ZXh0Pjwvc3ZnPg=='">
+                <img src="srishti3.jpg" alt="Srishti 3" class="gallery-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMmMyYzM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+c3Jpc2h0aTMuanBnPC90ZXh0Pjwvc3ZnPg=='">
+                <img src="srishti4.jpg" alt="Srishti 4" class="gallery-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMmMyYzM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+c3Jpc2h0aTQuanBnPC90ZXh0Pjwvc3ZnPg=='">
+                <img src="srishti5.jpg" alt="Srishti 5" class="gallery-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzUwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMmMyYzM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+c3Jpc2h0aTUuanBnPC90ZXh0Pjwvc3ZnPg=='">
+                <img src="srishti6.jpg" alt="Srishti 6" class="gallery-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDUwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMmMyYzM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+c3Jpc2h0aTYuanBnPC90ZXh0Pjwvc3ZnPg=='">
+            </div>
+            
+            <div id="lightbox" class="hidden">
+                <span id="lightbox-close">✖</span>
+                <img id="lightbox-img" src="" alt="Zoomed">
+                <p id="lightbox-caption" class="glass-panel">Caption here</p>
+            </div>
+        </section>
+
+        <section id="timeline" class="padding-section glass-section">
+            <h2 class="section-title">How We Got Here</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">Instagram DM</div>
+                <div class="timeline-item">First Conversation</div>
+                <div class="timeline-item">Random Conversations</div>
+                <div class="timeline-item">More Random Conversations</div>
+                <div class="timeline-item">Even More Random Conversations</div>
+                <div class="timeline-item highlight">Best Friend Day ❤️</div>
+            </div>
+        </section>
+
+        <section id="roasts" class="padding-section">
+            <h2 class="section-title">Roast Mommy</h2>
+            <p class="subtitle">Friendly fire only.</p>
+            <div class="roast-container glass-card">
+                <p id="roast-text">"Click the button if you dare."</p>
+                <button class="premium-btn" id="btn-roast">Generate Roast</button>
+            </div>
+            
+            <div class="appreciation-container glass-card hidden" id="appreciation-box">
+                <h3 style="color: var(--pink);">Wait, wholesome break...</h3>
+                <p id="appreciation-text"></p>
+            </div>
+        </section>
+
+        <!-- Mommy's Meme Match Game -->
+<section id="game" class="padding-section glass-section">
+    <h2 class="section-title">Mommy's Meme Match</h2>
+    <p class="subtitle">Match the chaos. Find the pairs to unlock a surprise!</p>
+    
+    <div class="memory-game-wrapper">
+        <div class="game-stats">
+            <p id="moves-count">Moves: 0</p>
+            <button class="premium-btn ghost" id="btn-restart-game">Restart</button>
+        </div>
+        
+        <div id="memory-board" class="memory-board">
+            <!-- Cards will be injected here by JavaScript -->
+        </div>
+
+        <!-- The surprise that appears when she wins -->
+        <div id="game-win-screen" class="hidden glass-card text-center">
+            <h3 style="color: var(--pink); font-size: 1.8rem; margin-bottom: 10px;">Brain Cells: 100% Active! 🧠✨</h3>
+            <p>You matched all the chaos!</p>
+            <div class="win-surprise">
+                <p class="win-msg" style="font-size: 1.2rem; font-style: italic; margin-bottom: 15px;">"A true mastermind of memes. The Good Boi is proud."</p>
+                <!-- Optional: Add a cute GIF here -->
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaG13eDQ5YTN2c29xMGVzMWRrOTd4bDNpNjNpZzhpeTB1ZTI3ZWxzciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VbnUQpnihPSIgIXuZv/giphy.gif" alt="Cute Dog Approval" style="border-radius: 15px; max-width: 100%; border: 2px solid var(--pink);">
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="interactive" class="padding-section">
+            <div class="grid-2col">
+                <div class="glass-card text-center">
+                    <h3>Dog vs Mommy</h3>
+                    <p>Who is better?</p>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+                        <button class="premium-btn" id="poll-dog">🐶 Dogs</button>
+                        <button class="premium-btn" id="poll-mommy">👑 Mommy</button>
+                    </div>
+                    <p id="poll-result" class="hidden" style="margin-top: 15px; font-weight: bold; color: var(--pink);"></p>
+                </div>
+
+                <div class="glass-card text-center">
+                    <h3>Warning</h3>
+                    <p>Do not click this button.</p>
+                    <button class="premium-btn ghost" id="btn-secret-main" style="margin-top: 15px; border-color: red; color: red;">DO NOT CLICK</button>
+                    <p id="secret-message" style="margin-top: 15px; font-weight: bold;"></p>
+                </div>
+
+                <div class="glass-card text-center">
+                    <h3>Mommy Fact Generator</h3>
+                    <button class="premium-btn" id="btn-compliment" style="margin-bottom: 15px;">Generate Fact</button>
+                    <p id="compliment-text" style="font-style: italic;">Click to discover a fact.</p>
+                </div>
+
+                <div class="glass-card text-center gift-section">
+                    <h3>Virtual Gift</h3>
+                    <div id="gift-box">🎁</div>
+                    <p id="gift-result" class="hidden">You received: <span style="color: var(--pink); font-weight: bold;"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="notes" class="padding-section glass-section">
+            <h2 class="section-title">Memory Wall</h2>
+            <div class="sticky-container">
+                <div class="sticky-note">We met on Instagram.</div>
+                <div class="sticky-note">And somehow became friends.</div>
+                <div class="sticky-note">One conversation became many.</div>
+                <div class="sticky-note">And now this website exists.</div>
+                <div class="sticky-note">Mommy's Good Boi ❤️</div>
+            </div>
+        </section>
+
+        <section id="certificate-sec" class="padding-section text-center">
+            <h2 class="section-title">Your Credentials</h2>
+            <div id="certificate" class="glass-card">
+                <h1 style="font-family: 'Pacifico', cursive; color: var(--pink); margin-bottom: 10px;">Official Best Friend Certificate</h1>
+                <p>This certifies that</p>
+                <h2 style="font-size: 2.5rem; margin: 10px 0;">Srishti</h2>
+                <p>has been officially recognized for</p>
+                <h3 style="color: var(--pink); margin-top: 10px;">Being Awesome</h3>
+                <div class="cert-footer" style="margin-top: 30px; display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px;">
+                    <span>Date: 2026</span>
+                    <span>Sign: Good Boi</span>
+                </div>
+            </div>
+            <button class="premium-btn" onclick="window.print()" style="margin-top: 20px;">Print Certificate</button>
+        </section>
+
+        <section id="message" class="padding-section">
+            <div class="glass-card premium-message-card">
+                <h2>Message From Good Boi</h2>
+                <div class="message-content">
+                    <p>Hey Mommy,</p>
+                    <p>This website is full of jokes, chaos, roasts, and random nonsense.</p>
+                    <p>But behind all of it is a simple message:<br><strong>Thank you.</strong></p>
+                    <p>Thank you for the conversations.<br>Thank you for the laughs.<br>Thank you for the memories.<br>Thank you for being yourself.</p>
+                    <p>The last few months have been genuinely fun and memorable.</p>
+                    <p>I wanted to make something that could hopefully make you smile the same way you've made so many moments more enjoyable.</p>
+                    <p class="signature">Happy Best Friend Day ❤️<br>— Your Good Boi</p>
+                </div>
+            </div>
+        </section>
+
+        <div id="ending-trigger"></div>
+
+        <footer>
+            <p>Made With Excessive Effort,</p>
+            <p>Questionable Humor,</p>
+            <p>And Lots Of Appreciation ❤️</p>
+            <p class="highlight">Happy Best Friend Day, Srishti</p>
+        </footer>
+
+        <div id="cinematic-ending" class="hidden">
+            <h1 class="fade-text" id="ce-1">Thanks For Visiting ❤️</h1>
+            <h1 class="fade-text hidden" id="ce-2">Stay Awesome Mommy</h1>
+            <h1 class="fade-text hidden" id="ce-3">Happy Best Friend Day</h1>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
