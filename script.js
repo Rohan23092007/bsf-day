@@ -9,7 +9,7 @@
 const STATE = {
     achievements: new Set(),
     musicPlaying: false,
-    secretClicks: 0,
+    secretClicks: 0, // <--- Ensure this exists
     roastCount: 0,
     isCinematicPlaying: false
 };
@@ -231,18 +231,32 @@ const pollRes = document.getElementById('poll-result');
 });
 
 // 9. Secret Button (Do Not Click)
-document.getElementById('btn-secret-main').addEventListener('click', () => {
-    STATE.secretClicks++;
-    const msg = document.getElementById('secret-message');
-    if(STATE.secretClicks === 1) msg.innerText = "I told you not to click.";
-    else if(STATE.secretClicks === 2) msg.innerText = "Seriously?";
-    else if(STATE.secretClicks === 3) msg.innerText = "You're impossible.";
-    else if(STATE.secretClicks >= 4) {
-        msg.innerText = "Fine. You are appreciated more than you know ❤️";
-        msg.style.color = "var(--pink)";
-        unlockAchievement('Secret Finder', 'You broke the rules and clicked it.');
-    }
-});
+const secretBtn = document.getElementById('btn-secret-main');
+const secretMsg = document.getElementById('secret-message');
+
+if (secretBtn) {
+    secretBtn.addEventListener('click', () => {
+        STATE.secretClicks++;
+        
+        // Debugging: uncomment the line below to see clicks in the browser console (F12)
+        // console.log("Secret Clicks:", STATE.secretClicks);
+
+        if (STATE.secretClicks === 1) {
+            secretMsg.innerText = "I told you not to click.";
+        } else if (STATE.secretClicks === 2) {
+            secretMsg.innerText = "Seriously?";
+        } else if (STATE.secretClicks === 3) {
+            secretMsg.innerText = "You're impossible.";
+        } else if (STATE.secretClicks >= 4) {
+            secretMsg.innerText = "Fine. You are appreciated more than you know ❤️";
+            secretMsg.style.color = "var(--pink)";
+            secretBtn.style.display = 'none'; // Hide button after reveal
+            unlockAchievement('Secret Finder', 'You broke the rules and clicked it.');
+        }
+    });
+} else {
+    console.error("Button 'btn-secret-main' not found in HTML!");
+}
 
 // 10. Compliment Generator
 document.getElementById('btn-compliment').addEventListener('click', () => {

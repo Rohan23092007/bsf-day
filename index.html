@@ -34,7 +34,7 @@
         <div class="music-player glass-panel">
             <span id="music-toggle">🎵 Play</span>
             <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5">
-            <audio id="bgm" src="music.mp3" loop></audio>
+            <audio id="bgm" src="music.mp3" loop preload="auto"></audio>
         </div>
         <div class="mood-picker glass-panel">
             <select id="mood-select">
@@ -60,7 +60,7 @@
             <p class="subtitle">"Officially the most chaotic person this website has ever met."</p>
             <div class="hero-buttons">
                 <button class="premium-btn" onclick="document.getElementById('facts').scrollIntoView({behavior: 'smooth'})">Begin Adventure</button>
-                <button class="premium-btn ghost" id="btn-secret-hero">Secret Button</button>
+                <!-- <button class="premium-btn ghost" id="btn-secret-main">DO NOT CLICK</button> -->
             </div>
         </section>
 
